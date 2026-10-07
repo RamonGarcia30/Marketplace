@@ -1,0 +1,7 @@
+Marketplace — links do projeto
+
+Repositório GitHub:
+https://github.com/RamonGarcia30/Marketplace
+
+Protótipo público:
+https://ramongarcia30.github.io/Marketplace/
