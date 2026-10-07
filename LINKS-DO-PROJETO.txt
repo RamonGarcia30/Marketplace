@@ -5,3 +5,9 @@ https://github.com/RamonGarcia30/Marketplace
 
 Protótipo público:
 https://ramongarcia30.github.io/Marketplace/
+
+Protótipo local:
+http://127.0.0.1:8765/
+
+Histórico das modificações:
+Salvo no histórico de commits do repositório GitHub.
