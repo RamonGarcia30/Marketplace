@@ -1,16 +1,893 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Norte — operação de marketplace</title>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Norte — operação de marketplace</title>
 <style>body{font-family:Aptos,"Segoe UI",system-ui,sans-serif!important}.welcome h2{letter-spacing:-.035em!important}.brand small,.nav-group h2,.demo,.stat small,.note,.prices span,.meta span,.card-actions .btn,.calc span,th{font-size:12px!important}.panel>.empty{padding:35px 18px}.main-photo{background:#0d121a}
-:root{--bg:#080a0f;--side:#0c1017;--panel:#111722;--panel2:#151d29;--line:#283345;--ink:#f4f7fb;--muted:#aab5c5;--quiet:#738097;--gold:#d7a843;--goldsoft:#f3d078;--green:#65ce9b;--red:#ef7c86;--r:9px}*{box-sizing:border-box}html{color-scheme:dark;background:var(--bg)}body{min-width:320px;margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--goldsoft);outline-offset:2px}::selection{background:var(--gold);color:#170f05}::-webkit-scrollbar{width:10px}::-webkit-scrollbar-thumb{background:#344054;border:2px solid var(--bg);border-radius:9px}.app{min-height:100vh;display:grid;grid-template-columns:248px minmax(0,1fr)}.side{position:sticky;top:0;height:100vh;padding:19px 13px;display:flex;flex-direction:column;overflow:auto;background:var(--side);border-right:1px solid #202a38}.brand{display:flex;gap:10px;align-items:center;padding:4px 11px 25px;border:0;background:none;color:var(--ink);text-align:left}.mark{display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--gold);border-radius:8px;color:var(--goldsoft)}.mark svg,.icon{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.brand b{display:block;font-size:17px;letter-spacing:-.03em}.brand small{color:var(--quiet);font-size:11px}.nav-group{margin-bottom:20px}.nav-group h2{margin:0 11px 7px;color:var(--quiet);font-size:11px;font-weight:600}.nav{display:grid;gap:2px}.nav button{display:flex;align-items:center;gap:11px;min-height:41px;width:100%;padding:9px 11px;border:0;border-radius:7px;background:none;color:var(--muted);text-align:left}.nav button:hover{background:#151d29;color:var(--ink)}.nav button.active{background:#1a2534;color:var(--ink);box-shadow:inset 2px 0 var(--gold)}.side-foot{margin-top:auto;padding:13px 11px 4px;border-top:1px solid #202a38;color:var(--muted);font-size:12px}.side-foot b{display:block;color:var(--ink);margin-bottom:3px}main{min-width:0;padding:22px clamp(18px,3vw,43px) 44px}.top{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:29px}.crumb{color:var(--quiet);font-size:12px}.top h1{margin:3px 0 0;font-size:22px;letter-spacing:-.04em}.top-actions,.actions,.filters{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.demo{display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border:1px solid #5b4820;border-radius:999px;background:#211c11;color:var(--goldsoft);font-size:11px}.demo i{width:6px;height:6px;border-radius:50%;background:var(--gold)}.btn,.chip,select{min-height:38px;padding:8px 12px;border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--ink);font-weight:600}.btn:hover,.chip:hover{border-color:#50617b;background:#182130}.btn.primary{background:var(--gold);border-color:var(--gold);color:#170f05}.btn.primary:hover{background:#e7bd61}.btn.ghost{background:transparent}.view[hidden]{display:none}.page-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:20px}.page-head h2{margin:0;font-size:24px;letter-spacing:-.045em}.page-head p{max-width:680px;margin:5px 0 0;color:var(--muted)}.panel{border:1px solid #202a38;border-radius:var(--r);background:var(--panel);box-shadow:inset 0 1px rgba(255,255,255,.025)}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid #202a38}.panel-head h3{margin:0;font-size:14px}.panel-head small{color:var(--quiet)}.grid2{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(280px,.8fr);gap:16px}.welcome{min-height:258px;padding:23px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg,#151d29,#10161f 68%)}.welcome h2{max-width:630px;margin:0;font-size:clamp(25px,3vw,38px);line-height:1.06;letter-spacing:-.055em}.welcome p{max-width:620px;margin:10px 0 0;color:var(--muted)}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:21px}.step{padding:11px;border:1px solid var(--line);border-radius:7px;background:#0d131b}.step b{display:block;color:var(--goldsoft);font-size:12px}.step span{display:block;margin-top:4px;color:var(--muted);font-size:12px;line-height:1.3}.status{padding:20px}.status h3{margin:0 0 16px}.status-row{display:grid;grid-template-columns:10px 1fr auto;gap:10px;padding:8px 0}.dot{width:8px;height:8px;margin-top:5px;border-radius:50%;background:var(--green)}.dot.warn{background:var(--gold)}.status-row b{display:block;font-size:13px}.status-row span,.status-row em{display:block;color:var(--muted);font-size:12px;font-style:normal}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}.stat{min-height:108px;padding:15px 16px}.stat span,.metric span{color:var(--muted);font-size:12px}.stat b,.metric b{display:block;margin-top:12px;font-size:23px;letter-spacing:-.04em;font-variant-numeric:tabular-nums}.stat small{display:block;margin-top:5px;color:var(--green);font-size:11px}.bottom{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(260px,.8fr);gap:16px}.chartbody{height:238px;padding:18px}.legend{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.chart{width:100%;height:166px;margin-top:12px}.chart line{stroke:#2c3749}.chart .area{fill:rgba(215,168,67,.12)}.chart .line{fill:none;stroke:var(--gold);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.attention{padding:0 18px}.attention div{display:flex;gap:11px;padding:14px 0;border-bottom:1px solid #202a38}.attention div:last-child{border:0}.attention i{width:7px;height:7px;flex:0 0 7px;margin-top:7px;border-radius:50%;background:var(--gold)}.attention b{font-size:13px}.attention p{margin:2px 0 0;color:var(--muted);font-size:12px}.filters{padding:12px;margin-bottom:16px;border:1px solid #202a38;border-radius:var(--r);background:var(--panel)}.search{position:relative;flex:1 1 260px}.search svg{position:absolute;left:11px;top:10px;color:var(--quiet)}.search input{width:100%;min-height:38px;padding:8px 10px 8px 38px;border:1px solid var(--line);border-radius:7px;background:#0d131d;color:var(--ink)}.chip{color:var(--muted);background:transparent}.chip.active{border-color:#6c5521;background:#241f13;color:var(--goldsoft)}.catalog{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.card{overflow:hidden}.photo{position:relative;height:176px;background:#0d121a}.photo img{display:block;width:100%;height:100%;object-fit:cover;opacity:.88}.note{position:absolute;left:9px;bottom:9px;padding:4px 7px;border:1px solid rgba(255,255,255,.2);border-radius:5px;background:rgba(5,8,12,.8);color:#e8edf6;font-size:10px}.copy{padding:13px}.copy h3{min-height:39px;margin:0;font-size:14px;line-height:1.35}.copy p{margin:5px 0 11px;color:var(--muted);font-size:12px}.prices{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:10px 0;border-top:1px solid #202a38;border-bottom:1px solid #202a38}.prices span,.meta span{display:block;color:var(--quiet);font-size:10px}.prices b{display:block;margin-top:3px;font-size:13px}.prices b.sale{color:var(--goldsoft)}.meta{display:flex;justify-content:space-between;padding:10px 0 12px}.meta b{color:var(--green);font-size:12px}.card-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}.card-actions .btn{min-height:34px;padding:6px;font-size:11px}.listing{display:grid;grid-template-columns:minmax(285px,.82fr) minmax(0,1.18fr);gap:16px;align-items:start}.gallery{padding:14px}.main-photo{display:block;width:100%;height:300px;object-fit:cover;border:1px solid var(--line);border-radius:7px}.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:9px}.thumbs img{width:100%;height:66px;object-fit:cover;border:1px solid var(--line);border-radius:5px}.source-note{margin:11px 1px 0;color:var(--muted);font-size:12px}.builder{padding:0 18px 18px}.tabs{display:flex;gap:18px;border-bottom:1px solid #202a38;margin-bottom:16px}.tabs button{padding:14px 1px 11px;border:0;border-bottom:2px solid transparent;background:none;color:var(--muted)}.tabs button.active{border-color:var(--gold);color:var(--ink)}.form{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{color:var(--muted);font-size:12px}.field input,.field select,.field textarea{width:100%;min-height:40px;padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:#0b1119;color:var(--ink)}.field textarea{min-height:76px;resize:vertical}.field input[type=range]{padding:0;accent-color:var(--gold)}.range{display:grid;grid-template-columns:1fr 75px;gap:10px;align-items:center}.calc{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:15px;padding:13px;border:1px solid #51431f;border-radius:7px;background:#19170f}.calc span{display:block;color:#d4c797;font-size:11px}.calc b{display:block;margin-top:4px;color:#fff4cf;font-size:17px;font-variant-numeric:tabular-nums}.calc b.green{color:#9ee9bd}.right{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}.summary{display:grid;grid-template-columns:repeat(7,minmax(130px,1fr));gap:10px;overflow:auto;padding-bottom:2px}.metric{min-width:130px;padding:13px}.metric b.green{color:var(--green)}.metric b.red{color:var(--red)}.finance{display:grid;grid-template-columns:repeat(5,1fr);gap:11px;margin-bottom:16px}.tablewrap{overflow:auto}table{width:100%;min-width:700px;border-collapse:collapse}th{padding:11px 16px;background:#0f151e;color:var(--quiet);font-size:11px;text-align:left}td{padding:14px 16px;border-top:1px solid #202a38;color:var(--muted);font-size:12px}td strong{color:var(--ink)}.empty{min-height:243px;display:grid;place-items:center;padding:35px;text-align:center}.empty svg{width:42px;height:42px;stroke:var(--quiet);fill:none;stroke-width:1.3}.empty h3{margin:13px 0 5px;font-size:15px}.empty p{max-width:430px;margin:0;color:var(--muted);font-size:13px}.integrations{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(270px,.7fr);gap:16px}.ilist{display:grid;gap:10px;padding:15px}.integration{display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:12px;padding:13px;border:1px solid var(--line);border-radius:8px;background:#0e141d}.logo{display:grid;place-items:center;width:40px;height:40px;border-radius:8px;background:#1b2533;color:var(--goldsoft);font-weight:700}.integration b{display:block}.integration span{display:block;margin-top:2px;color:var(--muted);font-size:12px}.address{padding:17px}.address p{color:var(--muted);font-size:12px}.address div{padding:10px;border:1px dashed #47556c;border-radius:7px;background:#0c121a;color:#dce4ef;font-size:12px}.toast{position:fixed;right:22px;bottom:22px;z-index:5;max-width:350px;padding:12px 14px;border:1px solid #5b4820;border-radius:7px;background:#211c11;color:#fff3ca;box-shadow:0 16px 36px rgba(0,0,0,.3);opacity:0;transform:translateY(8px);pointer-events:none;transition:.2s}.toast.show{opacity:1;transform:none}
+:root{--bg:#080a0f;--side:#0c1017;--panel:#111722;--panel2:#151d29;--line:#283345;--ink:#f4f7fb;--muted:#aab5c5;--quiet:#738097;--gold:#d7a843;--goldsoft:#f3d078;--green:#65ce9b;--red:#ef7c86;--r:9px}*{box-sizing:border-box}html{color-scheme:dark;background:var(--bg)}body{min-width:320px;margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--goldsoft);outline-offset:2px}::selection{background:var(--gold);color:#170f05}::-webkit-scrollbar{width:10px}::-webkit-scrollbar-thumb{background:#344054;border:2px solid var(--bg);border-radius:9px}.app{min-height:100vh;display:grid;grid-template-columns:248px minmax(0,1fr)}.side{position:sticky;top:0;height:100vh;padding:19px 13px;display:flex;flex-direction:column;overflow:auto;background:var(--side);border-right:1px solid #202a38}.brand{display:flex;gap:10px;align-items:center;padding:4px 11px 25px;border:0;background:none;color:var(--ink);text-align:left}.mark{display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--gold);border-radius:8px;color:var(--goldsoft)}.mark svg,.icon{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.brand b{display:block;font-size:17px;letter-spacing:-.03em}.brand small{color:var(--quiet);font-size:11px}.nav-group{margin-bottom:20px}.nav-group h2{margin:0 11px 7px;color:var(--quiet);font-size:11px;font-weight:600}.nav{display:grid;gap:2px}.nav button{display:flex;align-items:center;gap:11px;min-height:41px;width:100%;padding:9px 11px;border:0;border-radius:7px;background:none;color:var(--muted);text-align:left}.nav button:hover{background:#151d29;color:var(--ink)}.nav button.active{background:#1a2534;color:var(--ink);box-shadow:inset 2px 0 var(--gold)}.side-foot{margin-top:auto;padding:13px 11px 4px;border-top:1px solid #202a38;color:var(--muted);font-size:12px}.side-foot b{display:block;color:var(--ink);margin-bottom:3px}main{min-width:0;padding:22px clamp(18px,3vw,43px) 44px}.top{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:29px}.crumb{color:var(--quiet);font-size:12px}.top h1{margin:3px 0 0;font-size:22px;letter-spacing:-.04em}.top-actions,.actions,.filters{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.demo{display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border:1px solid #5b4820;border-radius:999px;background:#211c11;color:var(--goldsoft);font-size:11px}.demo i{width:6px;height:6px;border-radius:50%;background:var(--gold)}.btn,.chip,select{min-height:38px;padding:8px 12px;border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--ink);font-weight:600}.btn:hover,.chip:hover{border-color:#50617b;background:#182130}.btn.primary{background:var(--gold);border-color:var(--gold);color:#170f05}.btn.primary:hover{background:#e7bd61}.btn.ghost{background:transparent}.view[hidden]{display:none}.page-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:20px}.page-head h2{margin:0;font-size:24px;letter-spacing:-.045em}.page-head p{max-width:680px;margin:5px 0 0;color:var(--muted)}.panel{border:1px solid #202a38;border-radius:var(--r);background:var(--panel);box-shadow:inset 0 1px rgba(255,255,255,.025)}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid #202a38}.panel-head h3{margin:0;font-size:14px}.panel-head small{color:var(--quiet)}.grid2{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(280px,.8fr);gap:16px}.welcome{min-height:258px;padding:23px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg,#151d29,#10161f 68%)}.welcome h2{max-width:630px;margin:0;font-size:clamp(25px,3vw,38px);line-height:1.06;letter-spacing:-.055em}.welcome p{max-width:620px;margin:10px 0 0;color:var(--muted)}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:21px}.step{padding:11px;border:1px solid var(--line);border-radius:7px;background:#0d131b}.step b{display:block;color:var(--goldsoft);font-size:12px}.step span{display:block;margin-top:4px;color:var(--muted);font-size:12px;line-height:1.3}.status{padding:20px}.status h3{margin:0 0 16px}.status-row{display:grid;grid-template-columns:10px 1fr auto;gap:10px;padding:8px 0}.dot{width:8px;height:8px;margin-top:5px;border-radius:50%;background:var(--green)}.dot.warn{background:var(--gold)}.status-row b{display:block;font-size:13px}.status-row span,.status-row em{display:block;color:var(--muted);font-size:12px;font-style:normal}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}.stat{min-height:108px;padding:15px 16px}.stat span,.metric span{color:var(--muted);font-size:12px}.stat b,.metric b{display:block;margin-top:12px;font-size:23px;letter-spacing:-.04em;font-variant-numeric:tabular-nums}.stat small{display:block;margin-top:5px;color:var(--green);font-size:11px}.bottom{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(260px,.8fr);gap:16px}.chartbody{height:238px;padding:18px}.legend{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.chart{width:100%;height:166px;margin-top:12px}.chart line{stroke:#2c3749}.chart .area{fill:rgba(215,168,67,.12)}.chart .line{fill:none;stroke:var(--gold);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.attention{padding:0 18px}.attention div{display:flex;gap:11px;padding:14px 0;border-bottom:1px solid #202a38}.attention div:last-child{border:0}.attention i{width:7px;height:7px;flex:0 0 7px;margin-top:7px;border-radius:50%;background:var(--gold)}.attention b{font-size:13px}.attention p{margin:2px 0 0;color:var(--muted);font-size:12px}.filters{padding:12px;margin-bottom:16px;border:1px solid #202a38;border-radius:var(--r);background:var(--panel)}.search{position:relative;flex:1 1 260px}.search svg{position:absolute;left:11px;top:10px;color:var(--quiet)}.search input{width:100%;min-height:38px;padding:8px 10px 8px 38px;border:1px solid var(--line);border-radius:7px;background:#0d131d;color:var(--ink)}.chip{color:var(--muted);background:transparent}.chip.active{border-color:#6c5521;background:#241f13;color:var(--goldsoft)}.catalog{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.card{overflow:hidden}.photo{position:relative;height:176px;background:#0d121a}.photo img{display:block;width:100%;height:100%;object-fit:cover;opacity:.88}.note{position:absolute;left:9px;bottom:9px;padding:4px 7px;border:1px solid rgba(255,255,255,.2);border-radius:5px;background:rgba(5,8,12,.8);color:#e8edf6;font-size:10px}.copy{padding:13px}.copy h3{min-height:39px;margin:0;font-size:14px;line-height:1.35}.copy p{margin:5px 0 11px;color:var(--muted);font-size:12px}.prices{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:10px 0;border-top:1px solid #202a38;border-bottom:1px solid #202a38}.prices span,.meta span{display:block;color:var(--quiet);font-size:10px}.prices b{display:block;margin-top:3px;font-size:13px}.prices b.sale{color:var(--goldsoft)}.meta{display:flex;justify-content:space-between;padding:10px 0 12px}.meta b{color:var(--green);font-size:12px}.card-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}.card-actions .btn{min-height:34px;padding:6px;font-size:11px}.listing{display:grid;grid-template-columns:minmax(285px,.82fr) minmax(0,1.18fr);gap:16px;align-items:start}.gallery{padding:14px}.main-photo{display:block;width:100%;height:300px;object-fit:cover;border:1px solid var(--line);border-radius:7px}.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:9px}.thumbs img{width:100%;height:66px;object-fit:cover;border:1px solid var(--line);border-radius:5px}.source-note{margin:11px 1px 0;color:var(--muted);font-size:12px}.builder{padding:0 18px 18px}.tabs{display:flex;gap:18px;border-bottom:1px solid #202a38;margin-bottom:16px}.tabs button{padding:14px 10px 11px;border:0;border-bottom:2px solid transparent;background:none;color:var(--muted)}.tabs button.active{border-color:var(--gold);color:var(--ink)}.form{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{color:var(--muted);font-size:12px}.field input,.field select,.field textarea{width:100%;min-height:40px;padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:#0b1119;color:var(--ink)}.field textarea{min-height:76px;resize:vertical}.field input[type=range]{padding:0;accent-color:var(--gold)}.range{display:grid;grid-template-columns:1fr 75px;gap:10px;align-items:center}.calc{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:15px;padding:13px;border:1px solid #51431f;border-radius:7px;background:#19170f}.calc span{display:block;color:#d4c797;font-size:11px}.calc b{display:block;margin-top:4px;color:#fff4cf;font-size:17px;font-variant-numeric:tabular-nums}.calc b.green{color:#9ee9bd}.right{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}.summary{display:grid;grid-template-columns:repeat(7,minmax(130px,1fr));gap:10px;overflow:auto;padding-bottom:2px}.metric{min-width:130px;padding:13px}.metric b.green{color:var(--green)}.metric b.red{color:var(--red)}.finance{display:grid;grid-template-columns:repeat(5,1fr);gap:11px;margin-bottom:16px}.tablewrap{overflow:auto}table{width:100%;min-width:700px;border-collapse:collapse}th{padding:11px 16px;background:#0f151e;color:var(--quiet);font-size:11px;text-align:left}td{padding:14px 16px;border-top:1px solid #202a38;color:var(--muted);font-size:12px}td strong{color:var(--ink)}.empty{min-height:243px;display:grid;place-items:center;padding:35px;text-align:center}.empty svg{width:42px;height:42px;stroke:var(--quiet);fill:none;stroke-width:1.3}.empty h3{margin:13px 0 5px;font-size:15px}.empty p{max-width:430px;margin:0;color:var(--muted);font-size:13px}.integrations{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(270px,.7fr);gap:16px}.ilist{display:grid;gap:10px;padding:15px}.integration{display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:12px;padding:13px;border:1px solid var(--line);border-radius:8px;background:#0e141d}.logo{display:grid;place-items:center;width:40px;height:40px;border-radius:8px;background:#1b2533;color:var(--goldsoft);font-weight:700}.integration b{display:block}.integration span{display:block;margin-top:2px;color:var(--muted);font-size:12px}.address{padding:17px}.address p{color:var(--muted);font-size:12px}.address div{padding:10px;border:1px dashed #47556c;border-radius:7px;background:#0c121a;color:#dce4ef;font-size:12px}.toast{position:fixed;right:22px;bottom:22px;z-index:5;max-width:350px;padding:12px 14px;border:1px solid #5b4820;border-radius:7px;background:#211c11;color:#fff3ca;box-shadow:0 16px 36px rgba(0,0,0,.3);opacity:0;transform:translateY(8px);pointer-events:none;transition:.2s}.toast.show{opacity:1;transform:none}
 @media(max-width:1180px){.catalog{grid-template-columns:repeat(3,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.finance{grid-template-columns:repeat(3,1fr)}}@media(max-width:920px){.app{grid-template-columns:1fr}.side{position:relative;height:auto;padding:12px;overflow:visible}.brand{padding-bottom:12px}.nav-group{margin-bottom:9px}.nav-group h2,.side-foot{display:none}.nav{display:flex;overflow:auto}.nav button{width:auto;flex:0 0 auto;white-space:nowrap}main{padding:20px 16px 36px}.grid2,.bottom,.listing,.integrations{grid-template-columns:1fr}}@media(max-width:680px){.top,.page-head{align-items:flex-start}.top,.page-head{flex-direction:column}.top{margin-bottom:20px}.top-actions{width:100%;justify-content:space-between}.steps,.catalog,.form,.calc{grid-template-columns:1fr}.photo{height:205px}.field.full{grid-column:auto}.finance{grid-template-columns:1fr 1fr}.summary{grid-template-columns:repeat(7,145px)}.actions{width:100%}.actions .btn{flex:1}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
-</style></head><body><div class="app"><aside class="side"><button class="brand" data-view="overview"><span class="mark"><svg viewBox="0 0 24 24"><path d="M5 16 10 6l3 7 2-4 4 7M5 19h14"/></svg></span><span><b>Norte</b><small>operação de venda</small></span></button><section class="nav-group"><h2>Operação</h2><nav class="nav" aria-label="Operação"><button class="active" data-view="overview">⌑ Visão geral</button><button data-view="catalog">▱ Catálogo</button><button data-view="products">□ Meus produtos</button><button data-view="orders">☷ Pedidos</button><button data-view="finance">▭ Financeiro</button></nav></section><section class="nav-group"><h2>Configuração</h2><nav class="nav"><button data-view="integrations">⌘ Integrações</button><button data-view="notifications">◌ Notificações</button></nav></section><div class="side-foot"><b>Ambiente de demonstração</b>Conecte fornecedores e canais para trazer dados reais.</div></aside><main><header class="top"><div><div class="crumb">Norte / operação</div><h1 id="title">Visão geral</h1></div><div class="top-actions"><span class="demo"><i></i>Dados demonstrativos</span><button class="btn" data-view="notifications" aria-label="Abrir notificações">Notificações</button></div></header>
-<section class="view" id="view-overview"><div class="grid2"><section class="panel welcome"><div><h2>Organize a venda antes de publicar.</h2><p>Centralize o catálogo dos fornecedores, defina uma margem segura e acompanhe cada pedido até a compra e o envio.</p></div><div class="steps"><div class="step"><b>1. Conecte a loja</b><span>Autorize o canal de venda que receberá os anúncios.</span></div><div class="step"><b>2. Escolha do catálogo</b><span>Use o estoque e a foto enviados pelo fornecedor.</span></div><div class="step"><b>3. Publique com margem</b><span>Confira taxas e lucro antes de enviar o anúncio.</span></div></div></section><aside class="panel status"><h3>Status da operação</h3><div class="status-row"><i class="dot"></i><div><b>Catálogo do fornecedor</b><span>Última leitura há 4 min</span></div><em>estável</em></div><div class="status-row"><i class="dot"></i><div><b>Canal de vendas</b><span>Aguardando conexão</span></div><em>pendente</em></div><div class="status-row"><i class="dot warn"></i><div><b>2 itens exigem revisão</b><span>Custo ou disponibilidade mudou</span></div><em>atenção</em></div></aside></div><div class="stats"><article class="panel stat"><span>Vendas no período</span><b>R$ 0,00</b><small>Depois de conectar um canal</small></article><article class="panel stat"><span>Lucro estimado</span><b>R$ 0,00</b><small>Com base nos anúncios ativos</small></article><article class="panel stat"><span>Produtos no catálogo</span><b>4</b><small>Fotos e custos demonstrativos</small></article><article class="panel stat"><span>Margem média simulada</span><b>30,1%</b><small>Antes da publicação</small></article></div><div class="bottom"><section class="panel"><div class="panel-head"><h3>Resultado da operação</h3><small>Últimos 30 dias</small></div><div class="chartbody"><div class="legend"><span>Receita e lucro chegam aqui após a integração.</span><span>R$</span></div><svg class="chart" viewBox="0 0 720 180" preserveAspectRatio="none"><line x1="0" y1="20" x2="720" y2="20"/><line x1="0" y1="75" x2="720" y2="75"/><line x1="0" y1="130" x2="720" y2="130"/><path class="area" d="M0 142 90 140 180 143 270 137 360 139 450 134 540 138 630 131 720 133V180H0Z"/><path class="line" d="M0 142 90 140 180 143 270 137 360 139 450 134 540 138 630 131 720 133"/></svg></div></section><section class="panel"><div class="panel-head"><h3>Prioridades</h3><button class="btn ghost" data-view="catalog">Ver catálogo</button></div><div class="attention"><div><i></i><span><b>Publicar um produto com margem validada</b><p>O catálogo está pronto para a primeira seleção.</p></span></div><div><i></i><span><b>Conectar o Mercado Livre</b><p>Sem conexão, não há pedidos ou financeiro.</p></span></div><div><i></i><span><b>Definir reserva de estoque</b><p>Evita vender além da disponibilidade.</p></span></div></div></section></div></section>
-<section class="view" id="view-catalog" hidden><div class="page-head"><div><h2>Catálogo</h2><p>Produtos disponíveis no fornecedor para avaliar e transformar em anúncio.</p></div><div class="actions"><button class="btn" data-view="integrations">Conectar fornecedor</button><button class="btn primary" data-view="publish">Criar publicação</button></div></div><div class="filters"><label class="search"><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg><input id="search" placeholder="Buscar produto, fornecedor ou SKU"></label><select><option>Todas as categorias</option><option>Casa e escritório</option><option>Utilidades</option></select><button class="chip active">Todos</button><button class="chip">Disponíveis</button><button class="chip">Maior margem</button></div><div class="catalog" id="catalog"></div></section>
-<section class="view" id="view-publish" hidden><div class="page-head"><div><h2>Central de publicação</h2><p>Monte o anúncio a partir do produto do fornecedor e valide o retorno antes de publicar.</p></div><div class="actions"><button class="btn" data-view="catalog">Voltar ao catálogo</button><button class="btn primary" data-save>Salvar rascunho</button></div></div><div class="listing"><section class="panel gallery"><img class="main-photo" id="main-photo" src="" alt="Foto demonstrativa do produto escolhido"><div class="thumbs" id="thumbs"></div><p class="source-note">Fotos demonstrativas. Na operação, as imagens e variações serão recebidas do catálogo do fornecedor.</p></section><section class="panel"><div class="builder"><div class="tabs"><button class="active" data-tab="details">Dados do anúncio</button><button data-tab="pricing">Preço e rentabilidade</button></div><div id="details"><div class="form"><div class="field full"><label for="pub-title">Título do anúncio</label><input id="pub-title" value="Kit organizador modular para mesa"></div><div class="field"><label>Canal de venda</label><select><option>Mercado Livre (a conectar)</option><option>Shopee (a conectar)</option></select></div><div class="field"><label>Categoria</label><select><option>Casa e organização</option><option>Utilidades domésticas</option></select></div><div class="field"><label for="reserve">Reserva de estoque (un.)</label><input id="reserve" type="number" value="5"></div><div class="field"><label>Estoque no fornecedor</label><input id="supplier-stock" value="84" disabled></div><div class="field full"><label>Descrição</label><textarea>Organizador modular para uso em mesa, gaveta ou armário. Informações de medida, material e variação serão sincronizadas com o fornecedor.</textarea></div></div></div><div id="pricing" hidden><div class="form"><div class="field"><label for="cost">Custo no fornecedor (R$)</label><input id="cost" type="number" min="0" step=".01" value="42.50"></div><div class="field"><label for="price">Preço de venda (R$)</label><input id="price" type="number" min="0" step=".01" value="109.90"></div><div class="field"><label for="fee">Comissão do canal (%)</label><div class="range"><input id="fee-range" type="range" min="0" max="30" step=".1" value="16"><input id="fee" type="number" min="0" max="100" step=".1" value="16"></div></div><div class="field"><label for="tax">Impostos e antecipação (%)</label><div class="range"><input id="tax-range" type="range" min="0" max="25" step=".1" value="5"><input id="tax" type="number" min="0" max="100" step=".1" value="5"></div></div><div class="field"><label for="shipping">Frete pago por você (R$)</label><input id="shipping" type="number" min="0" step=".01" value="8.50"></div><div class="field"><label for="units">Previsão de vendas / mês</label><input id="units" type="number" min="1" value="20"></div></div><div class="calc"><div><span>Taxas estimadas</span><b id="fees">R$ 0,00</b></div><div><span>Lucro por unidade</span><b class="green" id="profit">R$ 0,00</b></div><div><span>Lucro mensal</span><b class="green" id="monthly">R$ 0,00</b></div></div><p class="source-note" id="margin">Margem líquida estimada: 0,0%.</p></div><div class="right"><button class="btn" data-tab="pricing">Revisar rentabilidade</button><button class="btn primary" data-save>Publicar quando conectar</button></div></div></section></div></section>
-<section class="view" id="view-products" hidden><div class="page-head"><div><h2>Meus produtos</h2><p>Aqui ficam os anúncios já publicados e ligados a um fornecedor.</p></div><button class="btn primary" data-view="catalog">Adicionar do catálogo</button></div><section class="panel"><div class="empty"><div><svg viewBox="0 0 48 48"><path d="m8 17 16-8 16 8-16 8-16-8ZM8 17v15l16 8 16-8V17M24 25v15"/></svg><h3>Nenhum produto publicado ainda</h3><p>Escolha um item do catálogo, confira os dados do fornecedor e publique depois de conectar o canal de vendas.</p></div></div></section></section>
-<section class="view" id="view-orders" hidden><div class="page-head"><div><h2>Pedidos</h2><p>Controle a venda, a compra no fornecedor e o envio ao cliente em uma mesma linha do tempo.</p></div><div class="actions"><button class="btn">Exportar</button><button class="btn primary">Importar pedidos</button></div></div><div class="summary"><article class="panel metric"><span>Total</span><b class="">0</b></article><article class="panel metric"><span>Aguardando pagamento</span><b class="">0</b></article><article class="panel metric"><span>Para comprar</span><b class="">0</b></article><article class="panel metric"><span>Em envio</span><b class="">0</b></article><article class="panel metric"><span>Entregues</span><b class="green">0</b></article><article class="panel metric"><span>Cancelados</span><b class="red">0</b></article><article class="panel metric"><span>Devolvidos</span><b class="">0</b></article></div><div class="filters" style="margin-top:16px"><label class="search"><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg><input placeholder="Buscar por pedido, cliente ou produto"></label><select><option>Todos os status</option><option>Para comprar</option><option>Em envio</option></select><select><option>Últimos 30 dias</option><option>Hoje</option></select></div><section class="panel"><div class="empty"><div><svg viewBox="0 0 48 48"><path d="M10 8h28v32H10zM17 17h14M17 24h14M17 31h8"/></svg><h3>Ainda não há pedidos para mostrar</h3><p>Os pedidos aparecerão aqui depois de conectar o marketplace e receber a primeira venda.</p></div></div></section></section>
-<section class="view" id="view-finance" hidden><div class="page-head"><div><h2>Financeiro</h2><p>Entradas, compras no fornecedor, taxas e saldo real serão consolidados após as conexões.</p></div><div class="actions"><button class="btn">Configurar repasse</button><button class="btn primary">Adicionar saldo</button></div></div><div class="finance"><article class="panel metric"><span>Saldo disponível</span><b class="">R$ 0,00</b></article><article class="panel metric"><span>Receitas</span><b class="green">R$ 0,00</b></article><article class="panel metric"><span>Pagamento a fornecedores</span><b class="red">R$ 0,00</b></article><article class="panel metric"><span>Taxas do canal</span><b class="red">R$ 0,00</b></article><article class="panel metric"><span>Reembolsos</span><b class="">R$ 0,00</b></article></div><section class="panel"><div class="panel-head"><h3>Saldo acumulado</h3><select><option>Últimos 30 dias</option><option>Este mês</option></select></div><div class="chartbody"><div class="legend"><span>Os movimentos aparecerão quando houver vendas e pagamentos conciliados.</span><span>R$ 0</span></div><svg class="chart" viewBox="0 0 720 180" preserveAspectRatio="none"><line x1="0" y1="20" x2="720" y2="20"/><line x1="0" y1="75" x2="720" y2="75"/><line x1="0" y1="130" x2="720" y2="130"/><path class="line" d="M0 130H720"/></svg></div></section><section class="panel" style="margin-top:16px"><div class="panel-head"><h3>Movimentações</h3><small>Sem dados importados</small></div><div class="empty"><div><svg viewBox="0 0 48 48"><path d="M8 14h32v24H8zM8 20h32M15 29h8"/></svg><h3>Não há movimentações no período</h3><p>Compras, vendas, tarifas e reembolsos serão registrados aqui.</p></div></div></section></section>
-<section class="view" id="view-integrations" hidden><div class="page-head"><div><h2>Integrações</h2><p>Conecte fornecedores e marketplaces para sincronizar estoque, preço, pedidos e financeiro.</p></div><button class="btn primary" data-connect="uma loja">Conectar uma loja</button></div><div class="integrations"><section class="panel"><div class="panel-head"><h3>Canais de venda</h3><small>Use credenciais próprias para ativar dados reais.</small></div><div class="ilist"><article class="integration"><div class="logo">ML</div><div><b>Mercado Livre</b><span>Importa pedidos, taxas e status de envio.</span></div><button class="btn primary" data-connect="Mercado Livre">Conectar</button></article><article class="integration"><div class="logo">S</div><div><b>Shopee</b><span>Disponível para uma próxima etapa da operação.</span></div><button class="btn " data-connect="Shopee">Conectar</button></article><article class="integration"><div class="logo">F</div><div><b>Fornecedor</b><span>Catálogo, preço e estoque precisam de uma origem integrada.</span></div><button class="btn " data-connect="Fornecedor">Adicionar</button></article></div></section><aside class="panel address"><h3>Origem de expedição</h3><p>O endereço usado pelo fornecedor entra aqui após a conexão. Revise a origem antes de publicar o primeiro anúncio.</p><div>Nenhum fornecedor conectado</div><button class="btn" style="width:100%;margin-top:12px" data-connect="Fornecedor">Configurar fornecedor</button></aside></div></section>
-<section class="view" id="view-notifications" hidden><div class="page-head"><div><h2>Central de notificações</h2><p>Alertas de estoque, variação de preço, publicação e pedidos ficam reunidos neste espaço.</p></div><button class="btn">Marcar todas como lidas</button></div><div class="filters"><button class="chip active">Todas</button><button class="chip">Estoque</button><button class="chip">Publicações</button><button class="chip">Pedidos</button><button class="chip">Financeiro</button></div><section class="panel"><div class="empty"><div><svg viewBox="0 0 48 48"><path d="M36 20a12 12 0 0 0-24 0c0 14-6 12-6 16h36c0-4-6-2-6-16M20 42h8"/></svg><h3>Nenhuma notificação por enquanto</h3><p>Quando as integrações estiverem ativas, o sistema poderá alertar sobre custo, disponibilidade e ações pendentes.</p></div></div></section></section>
-</main></div><div class="toast" id="toast" role="status"></div><script>var pubTitle=document.querySelector('#pub-title'),cost=document.querySelector('#cost'),price=document.querySelector('#price'),supplierStock=document.querySelector('#supplier-stock'),mainPhoto=document.querySelector('#main-photo'),thumbs=document.querySelector('#thumbs'),details=document.querySelector('#details'),pricing=document.querySelector('#pricing'),search=document.querySelector('#search'),catalog=document.querySelector('#catalog'),title=document.querySelector('#title');</script><script>
+</style>
+<style>
+.tools-layout{display:grid;grid-template-columns:minmax(220px,.55fr) minmax(0,1.45fr);gap:16px;align-items:start}.tool-list{display:grid;gap:7px;padding:11px}.tool-trigger{display:grid;grid-template-columns:30px 1fr;gap:9px;align-items:center;width:100%;padding:10px;border:1px solid transparent;border-radius:7px;background:transparent;color:var(--muted);text-align:left}.tool-trigger:hover{background:#151d29;color:var(--ink)}.tool-trigger.active{border-color:#5b4820;background:#211c11;color:var(--ink)}.tool-trigger b{display:block;font-size:13px}.tool-trigger small{display:block;margin-top:2px;color:var(--quiet);font-size:11px;line-height:1.3}.tool-glyph{display:grid;place-items:center;width:30px;height:30px;border-radius:6px;background:#1b2533;color:var(--goldsoft);font-weight:700}.tool-workbench{padding:18px}.tool-workbench[hidden]{display:none}.tool-kicker{display:flex;align-items:center;gap:8px;margin:0 0 8px;color:var(--goldsoft);font-size:12px;font-weight:700}.tool-workbench h3{margin:0;font-size:20px;letter-spacing:-.035em}.tool-workbench>p{max-width:650px;margin:6px 0 17px;color:var(--muted)}.tool-flow{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,.72fr);gap:15px}.tool-inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.tool-inputs .field.full{grid-column:1/-1}.tool-result{min-height:100%;padding:15px;border:1px solid #51431f;border-radius:8px;background:#19170f}.tool-result h4{margin:0 0 10px;color:#fff4cf;font-size:12px}.tool-result b{display:block;font-size:25px;letter-spacing:-.045em;font-variant-numeric:tabular-nums}.tool-result p{margin:7px 0 0;color:#d4c797;font-size:12px}.tool-result ul{margin:10px 0 0;padding-left:18px;color:#dce4ef;font-size:12px}.tool-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.tool-note{margin-top:15px;padding:10px 12px;border-left:2px solid var(--gold);border-radius:0 6px 6px 0;background:#121820;color:var(--muted);font-size:12px}.tool-note b{color:var(--ink)}.audit-list{display:grid;gap:8px;margin-top:11px}.audit-item{display:flex;gap:9px;align-items:flex-start;padding:9px;border:1px solid var(--line);border-radius:6px;background:#0d131b;color:var(--muted);font-size:12px}.audit-item i{display:block;flex:0 0 8px;width:8px;height:8px;margin-top:4px;border-radius:50%;background:var(--gold)}.audit-item.ok i{background:var(--green)}.audit-item strong{color:var(--ink)}.copy-output{min-height:105px}.code-preview{display:grid;grid-template-columns:repeat(17,10px);gap:2px;width:max-content;max-width:100%;margin:14px 0 0;padding:12px;border:1px solid var(--line);border-radius:7px;background:#f7f4ec}.code-preview i{width:10px;height:10px;background:#10151e}.code-preview i.light{background:transparent}.code-readout{margin-top:11px;color:var(--muted);font:12px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;word-break:break-all}.photo-guide{display:grid;gap:9px}.photo-step{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;padding:11px;border:1px solid var(--line);border-radius:7px;background:#0d131b}.photo-step input{width:18px;height:18px;margin:1px 0 0;accent-color:var(--gold)}.photo-step label{color:var(--ink);font-weight:600}.photo-step p{margin:2px 0 0;color:var(--muted);font-size:12px}.saved-tools{margin-top:16px}.saved-tools .attention div{align-items:center}.saved-tools .attention span{flex:1}.saved-tools .attention button{margin-left:auto}.empty-inline{margin:0;color:var(--muted);font-size:12px}@media(max-width:920px){.tools-layout,.tool-flow{grid-template-columns:1fr}}@media(max-width:680px){.tool-inputs{grid-template-columns:1fr}.tool-inputs .field.full{grid-column:auto}.tool-trigger{grid-template-columns:28px 1fr}}
+</style>
+<style>.tool-trigger.active small{color:#c6d0de}.tool-workbench .tool-note{color:#c6d0de}</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+<button class="brand" data-view="overview">
+<span class="mark">
+<svg viewBox="0 0 24 24">
+<path d="M5 16 10 6l3 7 2-4 4 7M5 19h14"/>
+</svg>
+</span>
+<span>
+<b>Norte</b>
+<small>operação de venda</small>
+</span>
+</button>
+<section class="nav-group">
+<h2>Operação</h2>
+<nav class="nav" aria-label="Operação">
+<button class="active" data-view="overview">⌑ Visão geral</button>
+<button data-view="catalog">▱ Catálogo</button>
+<button data-view="products">□ Meus produtos</button>
+<button data-view="orders">☷ Pedidos</button>
+<button data-view="finance">▭ Financeiro</button>
+<button data-view="tools">⌗ Ferramentas</button>
+</nav>
+</section>
+<section class="nav-group">
+<h2>Configuração</h2>
+<nav class="nav">
+<button data-view="integrations">⌘ Integrações</button>
+<button data-view="notifications">◌ Notificações</button>
+</nav>
+</section>
+<div class="side-foot">
+<b>Ambiente de demonstração</b>Conecte fornecedores e canais para trazer dados reais.</div>
+</aside>
+<main>
+<header class="top">
+<div>
+<div class="crumb">Norte / operação</div>
+<h1 id="title">Visão geral</h1>
+</div>
+<div class="top-actions">
+<span class="demo">
+<i>
+</i>Dados demonstrativos</span>
+<button class="btn" data-view="notifications" aria-label="Abrir notificações">Notificações</button>
+</div>
+</header>
+<section class="view" id="view-overview">
+<div class="grid2">
+<section class="panel welcome">
+<div>
+<h2>Organize a venda antes de publicar.</h2>
+<p>Centralize o catálogo dos fornecedores, defina uma margem segura e acompanhe cada pedido até a compra e o envio.</p>
+</div>
+<div class="steps">
+<div class="step">
+<b>1. Conecte a loja</b>
+<span>Autorize o canal de venda que receberá os anúncios.</span>
+</div>
+<div class="step">
+<b>2. Escolha do catálogo</b>
+<span>Use o estoque e a foto enviados pelo fornecedor.</span>
+</div>
+<div class="step">
+<b>3. Publique com margem</b>
+<span>Confira taxas e lucro antes de enviar o anúncio.</span>
+</div>
+</div>
+</section>
+<aside class="panel status">
+<h3>Status da operação</h3>
+<div class="status-row">
+<i class="dot">
+</i>
+<div>
+<b>Catálogo do fornecedor</b>
+<span>Última leitura há 4 min</span>
+</div>
+<em>estável</em>
+</div>
+<div class="status-row">
+<i class="dot">
+</i>
+<div>
+<b>Canal de vendas</b>
+<span>Aguardando conexão</span>
+</div>
+<em>pendente</em>
+</div>
+<div class="status-row">
+<i class="dot warn">
+</i>
+<div>
+<b>2 itens exigem revisão</b>
+<span>Custo ou disponibilidade mudou</span>
+</div>
+<em>atenção</em>
+</div>
+</aside>
+</div>
+<div class="stats">
+<article class="panel stat">
+<span>Vendas no período</span>
+<b>R$ 0,00</b>
+<small>Depois de conectar um canal</small>
+</article>
+<article class="panel stat">
+<span>Lucro estimado</span>
+<b>R$ 0,00</b>
+<small>Com base nos anúncios ativos</small>
+</article>
+<article class="panel stat">
+<span>Produtos no catálogo</span>
+<b>4</b>
+<small>Fotos e custos demonstrativos</small>
+</article>
+<article class="panel stat">
+<span>Margem média simulada</span>
+<b>30,1%</b>
+<small>Antes da publicação</small>
+</article>
+</div>
+<div class="bottom">
+<section class="panel">
+<div class="panel-head">
+<h3>Resultado da operação</h3>
+<small>Últimos 30 dias</small>
+</div>
+<div class="chartbody">
+<div class="legend">
+<span>Receita e lucro chegam aqui após a integração.</span>
+<span>R$</span>
+</div>
+<svg class="chart" viewBox="0 0 720 180" preserveAspectRatio="none">
+<line x1="0" y1="20" x2="720" y2="20"/>
+<line x1="0" y1="75" x2="720" y2="75"/>
+<line x1="0" y1="130" x2="720" y2="130"/>
+<path class="area" d="M0 142 90 140 180 143 270 137 360 139 450 134 540 138 630 131 720 133V180H0Z"/>
+<path class="line" d="M0 142 90 140 180 143 270 137 360 139 450 134 540 138 630 131 720 133"/>
+</svg>
+</div>
+</section>
+<section class="panel">
+<div class="panel-head">
+<h3>Prioridades</h3>
+<button class="btn ghost" data-view="catalog">Ver catálogo</button>
+</div>
+<div class="attention">
+<div>
+<i>
+</i>
+<span>
+<b>Publicar um produto com margem validada</b>
+<p>O catálogo está pronto para a primeira seleção.</p>
+</span>
+</div>
+<div>
+<i>
+</i>
+<span>
+<b>Conectar o Mercado Livre</b>
+<p>Sem conexão, não há pedidos ou financeiro.</p>
+</span>
+</div>
+<div>
+<i>
+</i>
+<span>
+<b>Definir reserva de estoque</b>
+<p>Evita vender além da disponibilidade.</p>
+</span>
+</div>
+</div>
+</section>
+</div>
+</section>
+<section class="view" id="view-catalog" hidden>
+<div class="page-head">
+<div>
+<h2>Catálogo</h2>
+<p>Produtos disponíveis no fornecedor para avaliar e transformar em anúncio.</p>
+</div>
+<div class="actions">
+<button class="btn" data-view="integrations">Conectar fornecedor</button>
+<button class="btn primary" data-view="publish">Criar publicação</button>
+</div>
+</div>
+<div class="filters">
+<label class="search">
+<svg class="icon" viewBox="0 0 24 24">
+<circle cx="11" cy="11" r="6"/>
+<path d="m16 16 4 4"/>
+</svg>
+<input id="search" placeholder="Buscar produto, fornecedor ou SKU">
+</label>
+<select>
+<option>Todas as categorias</option>
+<option>Casa e escritório</option>
+<option>Utilidades</option>
+</select>
+<button class="chip active">Todos</button>
+<button class="chip">Disponíveis</button>
+<button class="chip">Maior margem</button>
+</div>
+<div class="catalog" id="catalog">
+</div>
+</section>
+<section class="view" id="view-publish" hidden>
+<div class="page-head">
+<div>
+<h2>Central de publicação</h2>
+<p>Monte o anúncio a partir do produto do fornecedor e valide o retorno antes de publicar.</p>
+</div>
+<div class="actions">
+<button class="btn" data-view="catalog">Voltar ao catálogo</button>
+<button class="btn primary" data-save>Salvar rascunho</button>
+</div>
+</div>
+<div class="listing">
+<section class="panel gallery">
+<img class="main-photo" id="main-photo" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&amp;fit=crop&amp;w=800&amp;q=85" alt="Foto demonstrativa do produto escolhido">
+<div class="thumbs" id="thumbs">
+</div>
+<p class="source-note">Fotos demonstrativas. Na operação, as imagens e variações serão recebidas do catálogo do fornecedor.</p>
+</section>
+<section class="panel">
+<div class="builder">
+<div class="tabs">
+<button class="active" data-tab="details">Dados do anúncio</button>
+<button data-tab="pricing">Preço e rentabilidade</button>
+</div>
+<div id="details">
+<div class="form">
+<div class="field full">
+<label for="pub-title">Título do anúncio</label>
+<input id="pub-title" value="Kit organizador modular para mesa">
+</div>
+<div class="field">
+<label>Canal de venda</label>
+<select>
+<option>Mercado Livre (a conectar)</option>
+<option>Shopee (a conectar)</option>
+</select>
+</div>
+<div class="field">
+<label>Categoria</label>
+<select>
+<option>Casa e organização</option>
+<option>Utilidades domésticas</option>
+</select>
+</div>
+<div class="field">
+<label for="reserve">Reserva de estoque (un.)</label>
+<input id="reserve" type="number" value="5">
+</div>
+<div class="field">
+<label>Estoque no fornecedor</label>
+<input id="supplier-stock" value="84" disabled>
+</div>
+<div class="field full">
+<label>Descrição</label>
+<textarea>Organizador modular para uso em mesa, gaveta ou armário. Informações de medida, material e variação serão sincronizadas com o fornecedor.</textarea>
+</div>
+</div>
+</div>
+<div id="pricing" hidden>
+<div class="form">
+<div class="field">
+<label for="cost">Custo no fornecedor (R$)</label>
+<input id="cost" type="number" min="0" step=".01" value="42.50">
+</div>
+<div class="field">
+<label for="price">Preço de venda (R$)</label>
+<input id="price" type="number" min="0" step=".01" value="109.90">
+</div>
+<div class="field">
+<label for="fee">Comissão do canal (%)</label>
+<div class="range">
+<input id="fee-range" type="range" min="0" max="30" step=".1" value="16">
+<input id="fee" type="number" min="0" max="100" step=".1" value="16">
+</div>
+</div>
+<div class="field">
+<label for="tax">Impostos e antecipação (%)</label>
+<div class="range">
+<input id="tax-range" type="range" min="0" max="25" step=".1" value="5">
+<input id="tax" type="number" min="0" max="100" step=".1" value="5">
+</div>
+</div>
+<div class="field">
+<label for="shipping">Frete pago por você (R$)</label>
+<input id="shipping" type="number" min="0" step=".01" value="8.50">
+</div>
+<div class="field">
+<label for="units">Previsão de vendas / mês</label>
+<input id="units" type="number" min="1" value="20">
+</div>
+</div>
+<div class="calc">
+<div>
+<span>Taxas estimadas</span>
+<b id="fees">R$ 0,00</b>
+</div>
+<div>
+<span>Lucro por unidade</span>
+<b class="green" id="profit">R$ 0,00</b>
+</div>
+<div>
+<span>Lucro mensal</span>
+<b class="green" id="monthly">R$ 0,00</b>
+</div>
+</div>
+<p class="source-note" id="margin">Margem líquida estimada: 0,0%.</p>
+</div>
+<div class="right">
+<button class="btn" data-tab="pricing">Revisar rentabilidade</button>
+<button class="btn primary" data-save>Publicar quando conectar</button>
+</div>
+</div>
+</section>
+</div>
+</section>
+<section class="view" id="view-products" hidden>
+<div class="page-head">
+<div>
+<h2>Meus produtos</h2>
+<p>Aqui ficam os anúncios já publicados e ligados a um fornecedor.</p>
+</div>
+<button class="btn primary" data-view="catalog">Adicionar do catálogo</button>
+</div>
+<section class="panel">
+<div class="empty">
+<div>
+<svg viewBox="0 0 48 48">
+<path d="m8 17 16-8 16 8-16 8-16-8ZM8 17v15l16 8 16-8V17M24 25v15"/>
+</svg>
+<h3>Nenhum produto publicado ainda</h3>
+<p>Escolha um item do catálogo, confira os dados do fornecedor e publique depois de conectar o canal de vendas.</p>
+</div>
+</div>
+</section>
+</section>
+<section class="view" id="view-orders" hidden>
+<div class="page-head">
+<div>
+<h2>Pedidos</h2>
+<p>Controle a venda, a compra no fornecedor e o envio ao cliente em uma mesma linha do tempo.</p>
+</div>
+<div class="actions">
+<button class="btn">Exportar</button>
+<button class="btn primary">Importar pedidos</button>
+</div>
+</div>
+<div class="summary">
+<article class="panel metric">
+<span>Total</span>
+<b class="">0</b>
+</article>
+<article class="panel metric">
+<span>Aguardando pagamento</span>
+<b class="">0</b>
+</article>
+<article class="panel metric">
+<span>Para comprar</span>
+<b class="">0</b>
+</article>
+<article class="panel metric">
+<span>Em envio</span>
+<b class="">0</b>
+</article>
+<article class="panel metric">
+<span>Entregues</span>
+<b class="green">0</b>
+</article>
+<article class="panel metric">
+<span>Cancelados</span>
+<b class="red">0</b>
+</article>
+<article class="panel metric">
+<span>Devolvidos</span>
+<b class="">0</b>
+</article>
+</div>
+<div class="filters" style="margin-top:16px">
+<label class="search">
+<svg class="icon" viewBox="0 0 24 24">
+<circle cx="11" cy="11" r="6"/>
+<path d="m16 16 4 4"/>
+</svg>
+<input placeholder="Buscar por pedido, cliente ou produto">
+</label>
+<select>
+<option>Todos os status</option>
+<option>Para comprar</option>
+<option>Em envio</option>
+</select>
+<select>
+<option>Últimos 30 dias</option>
+<option>Hoje</option>
+</select>
+</div>
+<section class="panel">
+<div class="empty">
+<div>
+<svg viewBox="0 0 48 48">
+<path d="M10 8h28v32H10zM17 17h14M17 24h14M17 31h8"/>
+</svg>
+<h3>Ainda não há pedidos para mostrar</h3>
+<p>Os pedidos aparecerão aqui depois de conectar o marketplace e receber a primeira venda.</p>
+</div>
+</div>
+</section>
+</section>
+<section class="view" id="view-finance" hidden>
+<div class="page-head">
+<div>
+<h2>Financeiro</h2>
+<p>Entradas, compras no fornecedor, taxas e saldo real serão consolidados após as conexões.</p>
+</div>
+<div class="actions">
+<button class="btn">Configurar repasse</button>
+<button class="btn primary">Adicionar saldo</button>
+</div>
+</div>
+<div class="finance">
+<article class="panel metric">
+<span>Saldo disponível</span>
+<b class="">R$ 0,00</b>
+</article>
+<article class="panel metric">
+<span>Receitas</span>
+<b class="green">R$ 0,00</b>
+</article>
+<article class="panel metric">
+<span>Pagamento a fornecedores</span>
+<b class="red">R$ 0,00</b>
+</article>
+<article class="panel metric">
+<span>Taxas do canal</span>
+<b class="red">R$ 0,00</b>
+</article>
+<article class="panel metric">
+<span>Reembolsos</span>
+<b class="">R$ 0,00</b>
+</article>
+</div>
+<section class="panel">
+<div class="panel-head">
+<h3>Saldo acumulado</h3>
+<select>
+<option>Últimos 30 dias</option>
+<option>Este mês</option>
+</select>
+</div>
+<div class="chartbody">
+<div class="legend">
+<span>Os movimentos aparecerão quando houver vendas e pagamentos conciliados.</span>
+<span>R$ 0</span>
+</div>
+<svg class="chart" viewBox="0 0 720 180" preserveAspectRatio="none">
+<line x1="0" y1="20" x2="720" y2="20"/>
+<line x1="0" y1="75" x2="720" y2="75"/>
+<line x1="0" y1="130" x2="720" y2="130"/>
+<path class="line" d="M0 130H720"/>
+</svg>
+</div>
+</section>
+<section class="panel" style="margin-top:16px">
+<div class="panel-head">
+<h3>Movimentações</h3>
+<small>Sem dados importados</small>
+</div>
+<div class="empty">
+<div>
+<svg viewBox="0 0 48 48">
+<path d="M8 14h32v24H8zM8 20h32M15 29h8"/>
+</svg>
+<h3>Não há movimentações no período</h3>
+<p>Compras, vendas, tarifas e reembolsos serão registrados aqui.</p>
+</div>
+</div>
+</section>
+</section>
+<section class="view" id="view-integrations" hidden>
+<div class="page-head">
+<div>
+<h2>Integrações</h2>
+<p>Conecte fornecedores e marketplaces para sincronizar estoque, preço, pedidos e financeiro.</p>
+</div>
+<button class="btn primary" data-connect="uma loja">Conectar uma loja</button>
+</div>
+<div class="integrations">
+<section class="panel">
+<div class="panel-head">
+<h3>Canais de venda</h3>
+<small>Use credenciais próprias para ativar dados reais.</small>
+</div>
+<div class="ilist">
+<article class="integration">
+<div class="logo">ML</div>
+<div>
+<b>Mercado Livre</b>
+<span>Importa pedidos, taxas e status de envio.</span>
+</div>
+<button class="btn primary" data-connect="Mercado Livre">Conectar</button>
+</article>
+<article class="integration">
+<div class="logo">S</div>
+<div>
+<b>Shopee</b>
+<span>Disponível para uma próxima etapa da operação.</span>
+</div>
+<button class="btn " data-connect="Shopee">Conectar</button>
+</article>
+<article class="integration">
+<div class="logo">F</div>
+<div>
+<b>Fornecedor</b>
+<span>Catálogo, preço e estoque precisam de uma origem integrada.</span>
+</div>
+<button class="btn " data-connect="Fornecedor">Adicionar</button>
+</article>
+</div>
+</section>
+<aside class="panel address">
+<h3>Origem de expedição</h3>
+<p>O endereço usado pelo fornecedor entra aqui após a conexão. Revise a origem antes de publicar o primeiro anúncio.</p>
+<div>Nenhum fornecedor conectado</div>
+<button class="btn" style="width:100%;margin-top:12px" data-connect="Fornecedor">Configurar fornecedor</button>
+</aside>
+</div>
+</section>
+<section class="view" id="view-tools" hidden>
+<div class="page-head">
+<div>
+<h2>Ferramentas de operação</h2>
+<p>Faça contas, revise o rascunho e prepare materiais antes de publicar.</p>
+</div>
+<span class="demo">
+<i>
+</i>Demonstração local</span>
+</div>
+<p class="tool-note">
+<b>Rascunho em preparação.</b> Cálculos e rascunhos ficam apenas neste navegador; não consultamos canais, catálogos ou dados externos.</p>
+<div class="tools-layout">
+<aside class="panel">
+<div class="panel-head">
+<h3>Sequência de preparo</h3>
+<small>local</small>
+</div>
+<div class="tool-list" role="tablist" aria-label="Ferramentas de operação">
+<button class="tool-trigger active" data-tool="pricing" role="tab" aria-selected="true">
+<span class="tool-glyph">01</span>
+<span>
+<b>Calcule</b>
+<small>Margem e preço-alvo</small>
+</span>
+</button>
+<button class="tool-trigger" data-tool="audit" role="tab" aria-selected="false">
+<span class="tool-glyph">02</span>
+<span>
+<b>Revise</b>
+<small>Checagem simples do rascunho</small>
+</span>
+</button>
+<button class="tool-trigger" data-tool="copy" role="tab" aria-selected="false">
+<span class="tool-glyph">03</span>
+<span>
+<b>Escreva</b>
+<small>Título e descrição locais</small>
+</span>
+</button>
+<button class="tool-trigger" data-tool="codes" role="tab" aria-selected="false">
+<span class="tool-glyph">04</span>
+<span>
+<b>Prepare</b>
+<small>QR visual e estrutura EAN</small>
+</span>
+</button>
+<button class="tool-trigger" data-tool="photos" role="tab" aria-selected="false">
+<span class="tool-glyph">05</span>
+<span>
+<b>Fotografe</b>
+<small>Guia antes de enviar</small>
+</span>
+</button>
+<button class="tool-trigger" data-tool="answers" role="tab" aria-selected="false">
+<span class="tool-glyph">06</span>
+<span>
+<b>Responda</b>
+<small>Modelo editável pré-venda</small>
+</span>
+</button>
+</div>
+</aside>
+<section class="panel">
+<article class="tool-workbench" id="tool-pricing" role="tabpanel">
+<div class="tool-kicker">01 · DECIDIR</div>
+<h3>Rentabilidade e preço-alvo</h3>
+<p>Simule um preço para cobrir custos conhecidos e atingir a margem que você definiu.</p>
+<div class="tool-flow">
+<div class="tool-inputs">
+<div class="field">
+<label for="tool-cost">Custo do item (R$)</label>
+<input id="tool-cost" type="number" min="0" step=".01" value="42.50">
+</div>
+<div class="field">
+<label for="tool-fees">Taxas previstas (%)</label>
+<input id="tool-fees" type="number" min="0" max="99" step=".1" value="21">
+</div>
+<div class="field">
+<label for="tool-shipping">Frete assumido (R$)</label>
+<input id="tool-shipping" type="number" min="0" step=".01" value="8.50">
+</div>
+<div class="field">
+<label for="tool-margin">Margem desejada (%)</label>
+<input id="tool-margin" type="number" min="0" max="95" step=".1" value="20">
+</div>
+</div>
+<div class="tool-result" aria-live="polite">
+<h4>ESTIMATIVA LOCAL</h4>
+<b id="tool-target">R$ 0,00</b>
+<p id="tool-margin-copy">Preencha os custos para simular um preço-alvo.</p>
+</div>
+</div>
+<div class="tool-actions">
+<button class="btn primary" data-apply-target>Usar no rascunho</button>
+<button class="btn" data-save-tool="Preço-alvo simulado">Salvar localmente</button>
+</div>
+<p class="tool-note">A estimativa não inclui regras de canal, impostos ou dados em tempo real. Revise antes de decidir.</p>
+</article>
+<article class="tool-workbench" id="tool-audit" role="tabpanel" hidden>
+<div class="tool-kicker">02 · REVISAR</div>
+<h3>Auditoria simples do anúncio</h3>
+<p>Faça uma checagem local de clareza antes de avançar com o rascunho.</p>
+<div class="tool-flow">
+<div class="tool-inputs">
+<div class="field full">
+<label for="audit-title">Título</label>
+<input id="audit-title" placeholder="Ex.: Organizador modular para mesa">
+</div>
+<div class="field">
+<label for="audit-description">Descrição (caracteres)</label>
+<input id="audit-description" type="number" min="0" value="0">
+</div>
+<div class="field">
+<label for="audit-photos">Fotos planejadas</label>
+<input id="audit-photos" type="number" min="0" value="0">
+</div>
+<div class="field full">
+<label for="audit-price">Preço preenchido (R$)</label>
+<input id="audit-price" type="number" min="0" step=".01" value="0">
+</div>
+</div>
+<div class="tool-result">
+<h4>CHECAGEM LOCAL</h4>
+<b id="audit-score">0 de 4</b>
+<div class="audit-list" id="audit-list" aria-live="polite">
+</div>
+</div>
+</div>
+<div class="tool-actions">
+<button class="btn primary" data-run-audit>Revisar rascunho</button>
+<button class="btn" data-save-tool="Auditoria do rascunho">Salvar localmente</button>
+</div>
+<p class="tool-note">Isto organiza uma revisão básica; não é auditoria oficial de nenhuma plataforma.</p>
+</article>
+<article class="tool-workbench" id="tool-copy" role="tabpanel" hidden>
+<div class="tool-kicker">03 · ESCREVER</div>
+<h3>Rascunho de título e descrição</h3>
+<p>Transforme informações que você forneceu em um ponto de partida editável.</p>
+<div class="tool-flow">
+<div class="tool-inputs">
+<div class="field full">
+<label for="copy-product">Produto</label>
+<input id="copy-product" placeholder="Ex.: Garrafa térmica de inox">
+</div>
+<div class="field">
+<label for="copy-use">Uso principal</label>
+<input id="copy-use" placeholder="Ex.: rotina fora de casa">
+</div>
+<div class="field">
+<label for="copy-detail">Detalhe relevante</label>
+<input id="copy-detail" placeholder="Ex.: tampa rosqueável">
+</div>
+</div>
+<div class="tool-result">
+<h4>SUGESTÃO LOCAL</h4>
+<b id="copy-title">Seu título aparece aqui</b>
+<p id="copy-description">Inclua produto, uso e detalhe para criar um rascunho editável.</p>
+</div>
+</div>
+<div class="tool-actions">
+<button class="btn primary" data-generate-copy>Gerar rascunho</button>
+<button class="btn" data-copy-result>Copiar resultado</button>
+<button class="btn" data-save-tool="Rascunho de texto">Salvar localmente</button>
+</div>
+<p class="tool-note">A sugestão é local e genérica por intenção: revise medidas, materiais e promessas antes de usar.</p>
+</article>
+<article class="tool-workbench" id="tool-codes" role="tabpanel" hidden>
+<div class="tool-kicker">04 · PREPARAR</div>
+<h3>QR visual e estrutura EAN</h3>
+<p>Guarde uma referência visual local e confira a estrutura de um EAN informado.</p>
+<div class="tool-flow">
+<div class="tool-inputs">
+<div class="field full">
+<label for="code-content">Conteúdo para referência visual</label>
+<input id="code-content" placeholder="Ex.: identificação interna do item">
+</div>
+<div class="field full">
+<label for="ean-input">EAN-8 ou EAN-13</label>
+<input id="ean-input" inputmode="numeric" placeholder="Somente números">
+</div>
+</div>
+<div class="tool-result">
+<h4 id="ean-label">VALIDAÇÃO ESTRUTURAL</h4>
+<b id="ean-result">Aguardando código</b>
+<div class="code-preview" id="code-preview" aria-label="Prévia visual local, não escaneável">
+</div>
+<div class="code-readout" id="code-readout">Prévia visual não escaneável.</div>
+</div>
+</div>
+<div class="tool-actions">
+<button class="btn primary" data-check-code>Gerar e conferir</button>
+<button class="btn" data-save-tool="Referência de código">Salvar localmente</button>
+</div>
+<p class="tool-note">A prévia não é um QR funcional e a checagem EAN confere somente dígito e comprimento; não confirma cadastro ou validade comercial.</p>
+</article>
+<article class="tool-workbench" id="tool-photos" role="tabpanel" hidden>
+<div class="tool-kicker">05 · FOTOGRAFAR</div>
+<h3>Guia de fotos do anúncio</h3>
+<p>Marque o que você já preparou para deixar a decisão de envio mais consciente.</p>
+<div class="photo-guide" id="photo-guide">
+<div class="photo-step">
+<input id="photo-1" type="checkbox">
+<div>
+<label for="photo-1">Foto principal legível</label>
+<p>Mostre o item inteiro, com fundo simples e sem texto sobre a imagem.</p>
+</div>
+</div>
+<div class="photo-step">
+<input id="photo-2" type="checkbox">
+<div>
+<label for="photo-2">Detalhes úteis registrados</label>
+<p>Inclua ângulos, medidas, acabamento ou variações que reduzam dúvida.</p>
+</div>
+</div>
+<div class="photo-step">
+<input id="photo-3" type="checkbox">
+<div>
+<label for="photo-3">Escala compreensível</label>
+<p>Mostre contexto de uso ou uma referência de tamanho sem induzir erro.</p>
+</div>
+</div>
+<div class="photo-step">
+<input id="photo-4" type="checkbox">
+<div>
+<label for="photo-4">Revisão de fidelidade</label>
+<p>Confirme se a foto representa o item e os detalhes que serão descritos.</p>
+</div>
+</div>
+</div>
+<div class="tool-actions">
+<button class="btn primary" data-photo-status>Ver preparo</button>
+<button class="btn" data-save-tool="Checklist de fotos">Salvar localmente</button>
+</div>
+<p class="tool-note" id="photo-status">Próximo passo: marque os itens que você já conferiu.</p>
+</article>
+<article class="tool-workbench" id="tool-answers" role="tabpanel" hidden>
+<div class="tool-kicker">06 · RESPONDER</div>
+<h3>Resposta pré-venda editável</h3>
+<p>Comece uma resposta clara para uma dúvida recorrente e ajuste ao que você realmente sabe.</p>
+<div class="tool-flow">
+<div class="tool-inputs">
+<div class="field full">
+<label for="answer-question">Dúvida recebida</label>
+<input id="answer-question" placeholder="Ex.: Esse produto tem qual medida?">
+</div>
+<div class="field full">
+<label for="answer-fact">Informação confirmada</label>
+<input id="answer-fact" placeholder="Ex.: Mede 30 cm de largura">
+</div>
+</div>
+<div class="tool-result">
+<h4>MODELO LOCAL</h4>
+<b id="answer-title">Resposta em preparação</b>
+<p id="answer-result">Adicione a pergunta e uma informação confirmada para montar um modelo editável.</p>
+</div>
+</div>
+<div class="tool-actions">
+<button class="btn primary" data-generate-answer>Montar resposta</button>
+<button class="btn" data-copy-answer>Copiar resposta</button>
+<button class="btn" data-save-tool="Resposta pré-venda">Salvar localmente</button>
+</div>
+<p class="tool-note">Use apenas informações confirmadas. Esta página não envia mensagens nem acessa conversas externas.</p>
+</article>
+<section class="saved-tools">
+<div class="panel-head">
+<h3>Itens salvos localmente</h3>
+<small>neste navegador</small>
+</div>
+<div class="attention" id="saved-tools">
+<p class="empty-inline">Nenhum resultado salvo ainda.</p>
+</div>
+</section>
+</section>
+</div>
+</section>
+<section class="view" id="view-notifications" hidden>
+<div class="page-head">
+<div>
+<h2>Central de notificações</h2>
+<p>Alertas de estoque, variação de preço, publicação e pedidos ficam reunidos neste espaço.</p>
+</div>
+<button class="btn">Marcar todas como lidas</button>
+</div>
+<div class="filters">
+<button class="chip active">Todas</button>
+<button class="chip">Estoque</button>
+<button class="chip">Publicações</button>
+<button class="chip">Pedidos</button>
+<button class="chip">Financeiro</button>
+</div>
+<section class="panel">
+<div class="empty">
+<div>
+<svg viewBox="0 0 48 48">
+<path d="M36 20a12 12 0 0 0-24 0c0 14-6 12-6 16h36c0-4-6-2-6-16M20 42h8"/>
+</svg>
+<h3>Nenhuma notificação por enquanto</h3>
+<p>Quando as integrações estiverem ativas, o sistema poderá alertar sobre custo, disponibilidade e ações pendentes.</p>
+</div>
+</div>
+</section>
+</section>
+</main>
+</div>
+<div class="toast" id="toast" role="status">
+</div>
+<script>var pubTitle=document.querySelector('#pub-title'),cost=document.querySelector('#cost'),price=document.querySelector('#price'),supplierStock=document.querySelector('#supplier-stock'),mainPhoto=document.querySelector('#main-photo'),thumbs=document.querySelector('#thumbs'),details=document.querySelector('#details'),pricing=document.querySelector('#pricing'),search=document.querySelector('#search'),catalog=document.querySelector('#catalog'),title=document.querySelector('#title');</script>
+<script>
 const R=new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}),data=[['Luminária flexível LED','Aurora Casa','Casa e escritório',31.9,79.9,128,31.1,'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=85'],['Kit organizador modular','Moinho Utilidades','Organização',42.5,109.9,84,34.8,'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=85'],['Suporte articulado de mesa','Cais Acessórios','Acessórios',23.8,59.9,56,29.5,'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=85'],['Garrafa térmica 500 ml','Aurora Casa','Utilidades',38.4,94.9,64,27.2,'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&q=85']],titles={overview:'Visão geral',catalog:'Catálogo',publish:'Central de publicação',products:'Meus produtos',orders:'Pedidos',finance:'Financeiro',integrations:'Integrações',notifications:'Central de notificações'};let timer;function say(x){const t=document.querySelector('#toast');t.textContent=x;t.classList.add('show');clearTimeout(timer);timer=setTimeout(()=>t.classList.remove('show'),2800)}function render(list=data){catalog.innerHTML=list.map(p=>{let i=data.indexOf(p);return '<article class="panel card"><div class="photo"><img src="'+p[7]+'" alt="Foto demonstrativa de '+p[0]+'" loading="lazy"><span class="note">foto do fornecedor · demo</span></div><div class="copy"><h3>'+p[0]+'</h3><p>'+p[2]+' · '+p[1]+'</p><div class="prices"><div><span>Custo fornecedor</span><b>'+R.format(p[3])+'</b></div><div><span>Preço sugerido</span><b class="sale">'+R.format(p[4])+'</b></div></div><div class="meta"><div><span>Estoque fornecedor</span><b>'+p[5]+' un.</b></div><div><span>Margem estimada</span><b>'+p[6].toFixed(1).replace('.',',')+'%</b></div></div><div class="card-actions"><button class="btn" data-source="'+i+'">Fornecedor</button><button class="btn primary" data-pub="'+i+'">Publicar</button></div></div></article>'}).join('')}render();function view(v){document.querySelectorAll('.view').forEach(x=>x.hidden=x.id!=='view-'+v);document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.view===v));title.textContent=titles[v];scrollTo({top:0,behavior:'smooth'})}function choose(p){pubTitle.value=p[0];cost.value=p[3].toFixed(2);price.value=p[4].toFixed(2);supplierStock.value=p[5];mainPhoto.src=p[7];mainPhoto.alt='Foto demonstrativa de '+p[0];thumbs.innerHTML=[1,2,3,4].map(n=>'<img src="'+p[7]+'&sat='+n+'" alt="Variação demonstrativa '+n+' de '+p[0]+'">').join('');calc()}document.addEventListener('click',e=>{let v=e.target.closest('[data-view]');if(v){view(v.dataset.view);return}let p=e.target.closest('[data-pub]');if(p){choose(data[p.dataset.pub]);view('publish');return}let s=e.target.closest('[data-source]');if(s){say('Na versão conectada, você será levado ao catálogo de '+data[s.dataset.source][1]+'.');return}let c=e.target.closest('[data-connect]');if(c){say('A autorização de '+c.dataset.connect+' será configurada na integração real.');return}if(e.target.matches('[data-save]'))say('Rascunho preparado. Conecte um canal antes de publicar.');let tab=e.target.closest('[data-tab]');if(tab){document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab.dataset.tab));details.hidden=tab.dataset.tab!=='details';pricing.hidden=tab.dataset.tab!=='pricing'}if(e.target.matches('.filters .chip')){e.target.parentElement.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));e.target.classList.add('active')}});search.addEventListener('input',e=>{let q=e.target.value.toLowerCase();render(data.filter(p=>p.join(' ').toLowerCase().includes(q)))});function n(id){return Math.max(0,Number(document.querySelector('#'+id).value)||0)}function calc(){let c=n('cost'),p=n('price'),f=n('fee'),t=n('tax'),s=n('shipping'),u=Math.max(1,n('units')),fees=p*(f+t)/100,profit=p-c-s-fees,margin=p?profit/p*100:0;document.querySelector('#fees').textContent=R.format(fees);document.querySelector('#profit').textContent=R.format(profit);document.querySelector('#monthly').textContent=R.format(profit*u);document.querySelector('#margin').textContent='Margem líquida estimada: '+margin.toFixed(1).replace('.',',')+'%. '+(margin<15?'Atenção: reveja preço, taxas ou custo antes de publicar.':'Há espaço para testar preço e reserva de estoque.')}['cost','price','fee','tax','shipping','units'].forEach(id=>document.querySelector('#'+id).addEventListener('input',calc));[['fee-range','fee'],['tax-range','tax']].forEach(a=>{document.querySelector('#'+a[0]).addEventListener('input',e=>{document.querySelector('#'+a[1]).value=e.target.value;calc()});document.querySelector('#'+a[1]).addEventListener('input',e=>document.querySelector('#'+a[0]).value=Math.min(Number(e.target.value)||0,Number(document.querySelector('#'+a[0]).max)))});choose(data[1]);
-</script><script>var pubTitle=document.querySelector('#pub-title'),cost=document.querySelector('#cost'),price=document.querySelector('#price'),supplierStock=document.querySelector('#supplier-stock'),mainPhoto=document.querySelector('#main-photo'),thumbs=document.querySelector('#thumbs'),details=document.querySelector('#details'),pricing=document.querySelector('#pricing'),search=document.querySelector('#search'),catalog=document.querySelector('#catalog'),title=document.querySelector('#title');choose(data[1]);</script></body></html>
+</script>
+<script>var pubTitle=document.querySelector('#pub-title'),cost=document.querySelector('#cost'),price=document.querySelector('#price'),supplierStock=document.querySelector('#supplier-stock'),mainPhoto=document.querySelector('#main-photo'),thumbs=document.querySelector('#thumbs'),details=document.querySelector('#details'),pricing=document.querySelector('#pricing'),search=document.querySelector('#search'),catalog=document.querySelector('#catalog'),title=document.querySelector('#title');choose(data[1]);</script>
+<script>
+/* Dados locais: esta tela não sincroniza canais ou fornecedores reais. */
+const KEY='norte-marketplace-demo-v1',load=()=>JSON.parse(localStorage.getItem(KEY)||'{"products":[],"orders":[],"channels":[]}'),save=x=>localStorage.setItem(KEY,JSON.stringify(x));let state=load();
+document.querySelector('.top-actions').insertAdjacentHTML('afterbegin','<span class="demo">Dados locais de demonstração</span>');
+function money(v){return new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v)}
+function refresh(){let P=document.querySelector('#view-products'),O=document.querySelector('#view-orders'),F=document.querySelector('#view-finance');let revenue=state.orders.reduce((a,x)=>a+x.price,0),profit=state.orders.reduce((a,x)=>a+x.profit,0);P.querySelector('.panel').innerHTML=state.products.length?'<div class="panel-head"><h3>Anúncios de demonstração</h3><small>Salvos neste navegador</small></div><div class="attention">'+state.products.map((p,i)=>'<div><i></i><span><b>'+p.name+'</b><p>'+money(p.price)+' · margem '+p.margin.toFixed(1).replace('.',',')+'% · '+(p.margin>=15?'pronto para avançar':'rever margem antes de publicar')+'</p></span><button class="btn" data-order="'+i+'">Simular pedido</button></div>').join('')+'</div>':'<div class="empty"><div><h3>Nenhum anúncio local ainda</h3><p>Escolha um produto no catálogo, valide a margem e salve o rascunho.</p></div></div>';
+O.querySelector('.summary').innerHTML=[['Total',state.orders.length,''],['Para comprar',state.orders.filter(x=>x.status==='Para comprar').length,''],['Processando',state.orders.filter(x=>x.status==='Processando').length,''],['Entregues',state.orders.filter(x=>x.status==='Entregue').length,'green']].map(x=>'<article class="panel metric"><span>'+x[0]+'</span><b class="'+x[2]+'">'+x[1]+'</b></article>').join('');O.querySelector('.panel').innerHTML=state.orders.length?'<div class="panel-head"><h3>Pedidos locais</h3><small>Demonstração — não sincronizado</small></div><div class="attention">'+state.orders.map((o,i)=>'<div><i></i><span><b>#D'+String(i+1).padStart(3,'0')+' · '+o.name+'</b><p>'+money(o.price)+' · '+o.status+' · lucro estimado '+money(o.profit)+'</p></span><button class="btn" data-next="'+i+'">Avançar</button></div>').join('')+'</div>':'<div class="empty"><div><h3>Nenhum pedido local</h3><p>Simule uma venda em “Meus produtos” para acompanhar o fluxo.</p></div></div>';
+F.querySelector('.finance').innerHTML=[['Receita local',money(revenue),'green'],['Lucro estimado',money(profit),'green'],['Pedidos a conciliar',state.orders.filter(x=>x.status!=='Entregue').length,''],['Integrações reais',state.channels.length?'não configuradas':'nenhuma','red']].map(x=>'<article class="panel metric"><span>'+x[0]+'</span><b class="'+x[2]+'">'+x[1]+'</b></article>').join('');}
+document.addEventListener('click',e=>{let s=e.target.closest('[data-save]');if(s){let pr=Number(price.value),co=Number(cost.value),m=pr?(pr-co-pr*(Number(fee.value)+Number(tax.value))/100-Number(shipping.value))/pr*100:0,p={name:pubTitle.value,price:pr,margin:m};if(!state.products.some(x=>x.name===p.name)){state.products.push(p);save(state)}refresh();say(m>=15?'Rascunho local salvo. Você pode simular uma venda em Meus produtos.':'Rascunho salvo, mas a margem está baixa: revise antes de avançar.')}let o=e.target.closest('[data-order]');if(o){let p=state.products[o.dataset.order];state.orders.push({...p,profit:p.price*p.margin/100,status:'Para comprar'});save(state);refresh();say('Pedido local criado. Nenhum canal externo foi acionado.')}let n=e.target.closest('[data-next]');if(n){let q=state.orders[n.dataset.next];q.status=q.status==='Para comprar'?'Processando':q.status==='Processando'?'Entregue':'Entregue';save(state);refresh();say(q.status==='Entregue'?'Entrega local concluída; repasse ainda é demonstrativo.':'Pedido avançou no fluxo local.')}let r=e.target.closest('[data-reset-demo]');if(r){localStorage.removeItem(KEY);state=load();refresh();say('Demonstração reiniciada.')}});
+document.querySelector('#view-integrations').insertAdjacentHTML('beforeend','<p class="source-note">Integrações nesta página são apenas estados demonstrativos; nenhuma credencial, OAuth ou sincronização externa foi configurada.</p><button class="btn" data-reset-demo>Reiniciar dados da demonstração</button>');refresh();
+</script>
+<script>
+/* Ferramentas locais: não consultam, enviam ou validam dados fora deste navegador. */
+titles.tools='Ferramentas de operação';
+state.tools=Array.isArray(state.tools)?state.tools:[];
+const toolValue=id=>Math.max(0,Number(document.querySelector('#'+id).value)||0);
+const toolText=id=>document.querySelector('#'+id).value.trim();
+const moneyTool=value=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(value||0);
+function renderSavedTools(){const target=document.querySelector('#saved-tools');target.innerHTML=state.tools.length?state.tools.slice(-5).reverse().map((item,index)=>'<div><i></i><span><b>'+item+'</b><p>Salvo somente neste navegador.</p></span><button class="btn" data-remove-tool="'+(state.tools.length-1-index)+'">Remover</button></div>').join(''):'<p class="empty-inline">Nenhum resultado salvo ainda.</p>'}
+function storeTool(name){state.tools.push(name);save(state);renderSavedTools();say('Resultado salvo localmente.');}
+function updateMarginTool(){const cost=toolValue('tool-cost'),fees=toolValue('tool-fees')/100,shipping=toolValue('tool-shipping'),margin=toolValue('tool-margin')/100,base=1-fees-margin,target=base>0?(cost+shipping)/base:0;document.querySelector('#tool-target').textContent=target?moneyTool(target):'Revise os percentuais';document.querySelector('#tool-margin-copy').textContent=target?'Para cobrir os valores informados e simular '+(margin*100).toFixed(1).replace('.',',')+'% de margem após taxas.':'A soma de taxas e margem precisa ficar abaixo de 100%.';return target;}
+function runAudit(){const checks=[['Título claro',toolText('audit-title').length>=12,'Escreva um título com pelo menos 12 caracteres.'],['Descrição iniciada',toolValue('audit-description')>=80,'Inclua ao menos 80 caracteres de informação útil.'],['Fotos planejadas',toolValue('audit-photos')>=3,'Planeje pelo menos 3 fotos para cobrir item e detalhes.'],['Preço preenchido',toolValue('audit-price')>0,'Informe um preço para revisar a composição.']],score=checks.filter(x=>x[1]).length;document.querySelector('#audit-score').textContent=score+' de 4';document.querySelector('#audit-list').innerHTML=checks.map(x=>'<div class="audit-item '+(x[1]?'ok':'')+'"><i></i><span><strong>'+x[0]+'</strong><br>'+ (x[1]?'Pronto para a próxima revisão local.':x[2])+'</span></div>').join('');}
+function generateCopy(){const product=toolText('copy-product'),use=toolText('copy-use'),detail=toolText('copy-detail');const title=[product,detail].filter(Boolean).join(' · ')||'Rascunho de título';const description=product?'Conheça '+product+(use?' para '+use:'')+(detail?'. Destaque: '+detail+'.':'')+' Revise as informações e complete com medidas, material e condições confirmadas antes de usar.':'Inclua produto, uso e detalhe para criar um rascunho editável.';document.querySelector('#copy-title').textContent=title;document.querySelector('#copy-description').textContent=description;}
+function eanIsValid(input){const digits=input.replace(/\D/g,'');if(!/^(\d{8}|\d{13})$/.test(digits))return false;const body=digits.slice(0,-1);let sum=0,weight=3;for(let index=body.length-1;index>=0;index--){sum+=Number(body[index])*weight;weight=weight===3?1:3}return (10-sum%10)%10===Number(digits.at(-1));}
+function drawCode(){const content=toolText('code-content')||'NORTE-DEMO';let hash=0;for(const char of content)hash=(hash*31+char.charCodeAt(0))>>>0;const cells=[];for(let row=0;row<17;row++){for(let col=0;col<17;col++){const finder=(row<5&&col<5)||(row<5&&col>11)||(row>11&&col<5);const bit=((hash>>>((row*17+col)%24))^(row*7+col*11))&1;cells.push('<i class="'+((finder||bit)?'':'light')+'"></i>')}}document.querySelector('#code-preview').innerHTML=cells.join('');const ean=toolText('ean-input').replace(/\D/g,'');const valid=eanIsValid(ean);document.querySelector('#ean-result').textContent=ean?(valid?'Estrutura conferida':'Revise o número'):'Aguardando código';document.querySelector('#ean-label').textContent=ean?(valid?'ESTRUTURA EAN CONFERIDA':'VALIDAÇÃO ESTRUTURAL'):'VALIDAÇÃO ESTRUTURAL';document.querySelector('#code-readout').textContent='Prévia visual local, não escaneável. '+(ean?(valid?'O dígito verificador confere para '+ean+'.':'Use 8 ou 13 números com dígito verificador válido.'):'');}
+function photoStatus(){const completed=[...document.querySelectorAll('#photo-guide input')].filter(x=>x.checked).length;document.querySelector('#photo-status').textContent=completed===4?'Preparo concluído localmente. Próximo passo: confira se cada foto corresponde ao rascunho.':'Você marcou '+completed+' de 4 etapas. Próximo passo: revise a próxima foto necessária.';}
+function generateAnswer(){const question=toolText('answer-question'),fact=toolText('answer-fact');document.querySelector('#answer-title').textContent=question?'Resposta em rascunho':'Resposta em preparação';document.querySelector('#answer-result').textContent=question&&fact?'Olá! Sobre “'+question+'”: '+fact+' Se quiser, posso esclarecer outro detalhe confirmado do produto.':'Adicione a pergunta e uma informação confirmada para montar um modelo editável.';}
+async function copyLocal(text){if(!text||text.includes('aparece aqui')||text.includes('preparação')){say('Gere um rascunho antes de copiar.');return}try{await navigator.clipboard.writeText(text);say('Copiado para a área de transferência.')}catch{say('Não foi possível copiar automaticamente neste navegador.')}}
+document.addEventListener('click',event=>{const trigger=event.target.closest('[data-tool]');if(trigger){const id=trigger.dataset.tool;document.querySelectorAll('.tool-trigger').forEach(button=>{const active=button===trigger;button.classList.toggle('active',active);button.setAttribute('aria-selected',active)});document.querySelectorAll('.tool-workbench').forEach(panel=>panel.hidden=panel.id!=='tool-'+id);return}if(event.target.closest('[data-apply-target]')){const target=updateMarginTool();if(!target){say('Revise taxas e margem antes de usar.');return}price.value=target.toFixed(2);calc();view('publish');say('Preço-alvo aplicado ao rascunho local.');return}if(event.target.closest('[data-run-audit]')){runAudit();say('Revisão local atualizada.');return}if(event.target.closest('[data-generate-copy]')){generateCopy();say('Rascunho de texto criado localmente.');return}if(event.target.closest('[data-check-code]')){drawCode();say('Prévia e estrutura conferidas localmente.');return}if(event.target.closest('[data-photo-status]')){photoStatus();return}if(event.target.closest('[data-generate-answer]')){generateAnswer();say('Modelo de resposta criado localmente.');return}if(event.target.closest('[data-copy-result]')){copyLocal(document.querySelector('#copy-title').textContent+'\n\n'+document.querySelector('#copy-description').textContent);return}if(event.target.closest('[data-copy-answer]')){copyLocal(document.querySelector('#answer-result').textContent);return}const saveButton=event.target.closest('[data-save-tool]');if(saveButton){storeTool(saveButton.dataset.saveTool);return}const remove=event.target.closest('[data-remove-tool]');if(remove){state.tools.splice(Number(remove.dataset.removeTool),1);save(state);renderSavedTools();say('Item local removido.')}});
+['tool-cost','tool-fees','tool-shipping','tool-margin'].forEach(id=>document.querySelector('#'+id).addEventListener('input',updateMarginTool));['audit-title','audit-description','audit-photos','audit-price'].forEach(id=>document.querySelector('#'+id).addEventListener('input',runAudit));['photo-1','photo-2','photo-3','photo-4'].forEach(id=>document.querySelector('#'+id).addEventListener('change',photoStatus));updateMarginTool();runAudit();drawCode();renderSavedTools();
+</script>
+</body>
+</html>
